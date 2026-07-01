@@ -7,8 +7,7 @@ class Solution {
         }
         int leftSum = 0;
         for(int i = 0; i < n; i++) {
-            int rightSum = totalSum - leftSum - nums[i];
-            if(leftSum == rightSum) return i;
+            if(leftSum == totalSum - leftSum - nums[i]) return i;
             leftSum += nums[i];
         }
         return -1;

@@ -9,7 +9,7 @@ class Solution {
         for(int high = 0; high < n; high++) {
             c[a[high] - 'A']++;
             max = Math.max(max,c[a[high] - 'A']);
-            while((high - low + 1) - max > k) {
+            if((high - low + 1) - max > k) {
                 c[a[low] - 65]--;
                 low++;
             }
@@ -18,3 +18,5 @@ class Solution {
         return res;
     }
 }
+
+// check first code for better understanding;

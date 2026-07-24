@@ -12,7 +12,6 @@ class Solution {
             while((high - low + 1) - max > k) {
                 c[a[low] - 65]--;
                 low++;
-                max = Math.max(max,c[a[low] - 'A']);
             }
             res = Math.max(res,high - low + 1);
         }

@@ -10,21 +10,23 @@ class Solution {
 
         int c[] = new int[128];
         char ch[] = s.toCharArray();
-        String res = "";
+        int res = Integer.MAX_VALUE,start = 0;
         int low = 0;
 
         for (int high = 0; high < s.length(); high++) {
             c[ch[high]]++;
 
             while (helper(tCount, c)) {
-                if (res.isEmpty() || (high - low + 1) < res.length()) {
-                    res = s.substring(low, high + 1);
+                int len = high - low + 1;
+                if (len < res) {
+                    res = len;
+                    start = low;
                 }
                 c[ch[low]]--;
                 low++; 
             }
         }
-        return res;
+        return res == Integer.MAX_VALUE ? "" : s.substring(start,start+res);
     }
 
     public static boolean helper(int[] tCount, int[] c) {

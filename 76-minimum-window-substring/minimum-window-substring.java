@@ -16,16 +16,12 @@ class Solution {
         for (int high = 0; high < s.length(); high++) {
             c[ch[high]]++;
 
-            while (high - low + 1 >= t.length()) {
-                if (helper(tCount, c)) {
-                    if (res.isEmpty() || (high - low + 1) < res.length()) {
-                        res = s.substring(low, high + 1);
-                    }
-                    c[ch[low]]--;
-                    low++; 
-                } else {
-                    break;
+            while (helper(tCount, c)) {
+                if (res.isEmpty() || (high - low + 1) < res.length()) {
+                    res = s.substring(low, high + 1);
                 }
+                c[ch[low]]--;
+                low++; 
             }
         }
         return res;
